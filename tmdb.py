@@ -26,16 +26,18 @@ def recommend(nazvanie_filma):
 	spisok = Json.decode_json('res')
 	recommendation = {}
 	
+	film_genre = []
 	if nazvanie_filma in spisok.keys():
-		for film in spisok.keys():
-			for gnr in spisok[film]['genres']:
-				film_genre = gnr['name']
+		for gnr in spisok[nazvanie_filma]['genres']:
+			film_genre.append(gnr['name'])
+	else:
+		return {}
 
-	next
-	
 	for film in spisok.keys():
+		if film == nazvanie_filma:
+			next
 		for genre in spisok[film]['genres']:
-			if genre['name'] == film_genre:
-				recommendation[film] = film_genre
-		
+			if genre['name'] in film_genre:
+				recommendation[film] = spisok[film]
+				break
 	return recommendation
