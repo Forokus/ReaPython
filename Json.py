@@ -1,8 +1,8 @@
 import json
 
 def encode_json(name, dictionary):
-    with open('{}.json'.format(name),'w') as file:
-        json.dump(dictionary, file)
+	with open('{}.json'.format(name),'w') as file:
+		json.dump(dictionary, file)
 
 def decode_json(name):
 	with open('{}.json'.format(name)) as file:
